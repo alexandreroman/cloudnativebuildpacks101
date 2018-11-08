@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cloud Native Buildpacks 101</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.0/normalize.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div id="container">
+    <h1>Welcome to Cloud Native Buildpacks 101!</h1>
+    <p>If you're seing this page, this means you successfully created a Docker image
+        using the CLI <em>pack</em> from <a href="https://buildpacks.io">Cloud Native Buildpacks</a>.</p>
+    <img src="applause.gif" width="350" height="201" alt="Congratulations!"/>
+
+    <p>This app is powered by Spring Boot, running on Java <span th:text="${javaVersion}"/>.</p>
+
+    <h2>What if I want to rebuild this image?</h2>
+    <p>Here is a command you may use to build this image from source code:</p>
+    <pre><code class="shell">$ pack build cloudnativebuildpacks101</code></pre>
+    <p>The source code will automatically be compiled, and a Docker image named
+        <em>cloudnativebuildpacks101</em> will be created, using the <em>java-buildpack</em>.</p>
+    <p>Run the app using this Docker command:</p>
+    <pre><code class="shell">$ docker run --rm -p 8080:8080/tcp cloudnativebuildpacks101</code></pre>
+
+    <div id="footer">
+        <p>Copyright &copy; 2018 Pivotal Software Inc.</p>
+    </div>
+</div>
+
+<a href="https://github.com/alexandreroman/cloudnativebuildpacks101"><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+        alt="Fork me on GitHub"></a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloudnativebuildpacks101
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cloudnativebuildpacks101
+  namespace: cloudnativebuildpacks101
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cloudnativebuildpacks101
+    spec:
+      containers:
+      - name: cloudnativebuildpacks101
+        image: alexandreroman/cloudnativebuildpacks101
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudnativebuildpacks101-lb
+  labels:
+    app: cloudnativebuildpacks101
+  namespace: cloudnativebuildpacks101
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: cloudnativebuildpacks101

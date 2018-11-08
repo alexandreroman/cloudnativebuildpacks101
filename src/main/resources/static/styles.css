@@ -1,0 +1,26 @@
+body {
+    font-family: "Eczar", sans-serif;
+    font-sze: 14pt;
+    background: white;
+}
+
+a {
+    color: blue;
+}
+
+#container {
+    text-align: left;
+    margin: 2em;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 3em;
+    color: black;
+}
+
+#footer {
+    margin: 3em 0;
+    color: gray;
+    font-size: 0.8em;
+}
