@@ -13,6 +13,7 @@
 </head>
 <body>
 <div id="container">
+    <img src="https://imgur.com/download/iJ2Hr2C" alt="Buildpacks.io"/>
     <h1>Welcome to Cloud Native Buildpacks 101!</h1>
     <p>If you're seing this page, this means you successfully created a Docker image
         using the CLI <em>pack</em> from <a href="https://buildpacks.io">Cloud Native Buildpacks</a>.</p>
@@ -22,9 +23,10 @@
 
     <h2>What if I want to rebuild this image?</h2>
     <p>Here is a command you may use to build this image from source code:</p>
-    <pre><code class="shell">$ pack build cloudnativebuildpacks101</code></pre>
+    <pre><code class="shell">$ pack build cloudnativebuildpacks101 --builder=nebhale/java-build</code></pre>
     <p>The source code will automatically be compiled, and a Docker image named
-        <em>cloudnativebuildpacks101</em> will be created, using the <em>java-buildpack</em>.</p>
+        <em>cloudnativebuildpacks101</em> will be created, using the next generation of Cloud Foundry Java Buildpack,
+        maintained by <a href="https://twitter.com/nebhale">Ben Hale</a>.</p>
     <p>Run the app using this Docker command:</p>
     <pre><code class="shell">$ docker run --rm -p 8080:8080/tcp cloudnativebuildpacks101</code></pre>
 

@@ -25,8 +25,12 @@ Install `pack` using these [instructions](https://github.com/buildpack/pack/rele
 The Docker image will contain a single Java app using Spring Boot.
 Thanks to `pack`, we're going to build this app and package it as a Docker image:
 ```shell
-$ pack build cloudnativebuildpacks101
+$ pack build cloudnativebuildpacks101 --builder=nebhale/java-build
 ```
+
+By adding `--builder=nebhale/java-build` to this command, we tell `pack` to use the
+next generation of Cloud Foundry Java Buildpack, maintained by [Ben Hale](https://twitter.com/nebhale).
+As soon as `pack` gets stable enough, this builder should not be required.
 
 You don't even need a JDK nor Maven to build this app. The `java-buildpack` is automatically
 downloaded: it is responsible for building the app, and making sure the resulting Docker
@@ -41,11 +45,29 @@ Just go to http://localhost:8080 to see the result.
 
 ## See it live
 
+### Deploy to Kubernetes
+
 In case you already have a Kubernetes cluster, you may want to deploy this app to see it
 in action. Feel free to use this Kubernetes descriptor:
 ```shell
-$ kubectl apply -f k8s/cnb101.yml
+$ kubectl apply -f deploy/k8s.yml
 ```
+
+### Deploy to Cloud Foundry Application Runtime (PAS)
+
+You can also deploy Docker images to Cloud Foundry:
+```shell
+$ cf push -f deploy/docker-on-cloudfoundry.yml
+```
+
+In the end, don't forget that Spring Boot apps are meant to be deployed
+in a PaaS like Cloud Foundry, since it's way easier than maintaining Docker images:
+```shell
+$ cf push -f deploy/cloudfoundry.yml
+```
+
+**It's up to you to choose among all these deployment options the one
+that better suits you.**
 
 ## Contribute
 

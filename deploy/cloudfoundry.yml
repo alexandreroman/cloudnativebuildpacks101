@@ -1,0 +1,7 @@
+---
+applications:
+- name: cloudnativebuildpacks101
+  path: ../target/cloudnativebuildpacks101.jar
+  memory: 1G
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack.git
