@@ -25,12 +25,8 @@ Install `pack` using these [instructions](https://github.com/buildpack/pack/rele
 The Docker image will contain a single Java app using Spring Boot.
 Thanks to `pack`, we're going to build this app and package it as a Docker image:
 ```shell
-$ pack build cloudnativebuildpacks101 --builder=nebhale/java-build
+$ pack build cloudnativebuildpacks101
 ```
-
-By adding `--builder=nebhale/java-build` to this command, we tell `pack` to use the
-next generation of Cloud Foundry Java Buildpack, maintained by [Ben Hale](https://twitter.com/nebhale).
-As soon as `pack` gets stable enough, this builder should not be required.
 
 You don't even need a JDK nor Maven to build this app. The `java-buildpack` is automatically
 downloaded: it is responsible for building the app, and making sure the resulting Docker
