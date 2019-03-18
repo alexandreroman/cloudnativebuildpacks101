@@ -4,13 +4,16 @@ kind: Namespace
 metadata:
   name: cloudnativebuildpacks101
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudnativebuildpacks101
   namespace: cloudnativebuildpacks101
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: cloudnativebuildpacks101
   template:
     metadata:
       labels:
